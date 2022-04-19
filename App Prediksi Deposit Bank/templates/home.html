@@ -1,0 +1,299 @@
+{% extends 'index.html' %}
+{% block title %}PREDIKSI DEPOSIT BANK{% endblock %}
+{% block header %}BANK DEPOSIT CUSTOMER PREDICTION{% endblock %}
+{% block content1 %}
+<div class="container">
+<h1 style="font-size: 20px;">INPUT DATA</h1>
+<div class="data-input">
+  
+<form action="" method="post">
+  <div class="kotak1">
+ <!-- Age -->
+ <div class="konten-input">
+   <label for="age">Age</label>
+   <input type="text" name="age" id="age" placeholder="Input Age...">
+ </div>
+ <!-- job -->
+ <div class="konten-input">
+   <label for="job">Job</label>
+   <select id="job" name="job">
+     <option value="">Select...</option>
+     <option value="0">Admin</option>
+     <option value="1">Technician</option>
+     <option value="2">Services</option>
+     <option value="3">Management</option>
+     <option value="4">Retired</option>
+     <option value="5">Blue-collar</option>
+     <option value="6">Unemployed</option>
+     <option value="7">Entrepreneur</option>
+     <option value="8">Housemaid</option>
+     <option value="9">Unknown</option>
+     <option value="10">Self-employed</option>
+     <option value="11">Student</option>
+   </select>
+ </div>
+
+ <!-- marital -->
+  <div class="konten-input">
+   <label for="marital">Marital</label>
+   <select id="marital" name="marital">
+     <option value="">Select...</option>
+     <option value="0">Married</option>
+     <option value="1">Single</option>
+     <option value="2">Divorced</option>
+   </select>
+ </div>
+
+ <!-- education -->
+ <div class="konten-input">
+   <label for="education">Education</label>
+   <select id="education" name="education">
+     <option value="">Select...</option>
+     <option value="0">Secondary</option>
+     <option value="1">Tertiary</option>
+     <option value="2">Primary</option>
+     <option value="3">Unknown</option>
+   </select>
+ </div>
+</div>
+
+
+
+<div class="kotak2">
+ <!-- default -->
+ <div class="konten-input">
+   <label for="default">Default</label>
+   <select id="default" name="default">
+     <option value="">Select...</option>
+     <option value="1">Yes</option>
+     <option value="0">No</option>
+   </select>
+ </div>
+
+ <!-- balance -->
+ <div class="konten-input">
+   <label for="balance">Balance</label>
+   <input type="text" name="balance" id="balance" placeholder="Input balance...">
+ </div>
+
+ <!-- housing -->
+ <div class="konten-input">
+   <label for="housing">Housing</label>
+   <select id="housing" name="housing">
+     <option value="">Select...</option>
+     <option value="1">Yes</option>
+     <option value="0">No</option>
+   </select>
+ </div>
+
+ <!-- loan -->
+ <div class="konten-input">
+   <label for="loan">Loan</label>
+   <select id="loan" name="loan">
+     <option value="">Select...</option>
+     <option value="1">Yes</option>
+     <option value="0">No</option>
+   </select>
+ </div>
+</div>
+
+
+
+<div class="kotak3">
+ <!-- contact -->
+ <div class="konten-input">
+   <label for="contact">Contact</label>
+   <select id="contact" name="contact">
+     <option value="">Select...</option>
+     <option value="0">Unknown</option>
+     <option value="1">Cellular</option>
+     <option value="2">Telephone</option>
+   </select>
+ </div>
+
+ <!-- day -->
+ <div class="konten-input">
+   <label for="day">Day</label>
+   <input type="text" name="day" id="day" placeholder="Input day...">
+ </div>
+
+ <!--  month -->
+ <div class="konten-input">
+   <label for="month">Month</label>
+   <select id="month" name="month">
+     <option value="">Select...</option>
+     <option value="0">January</option>
+     <option value="1">Februari</option>
+     <option value="2">March</option>
+     <option value="3">April</option>
+     <option value="4">May</option>
+     <option value="5">June</option>
+     <option value="6">July</option>
+     <option value="7">August</option>
+     <option value="8">September</option>
+     <option value="9">October</option>
+     <option value="10">November</option>
+     <option value="11">December</option>
+   </select>
+ </div>
+
+ <!-- duration -->
+ <div class="konten-input">
+   <label for="duration">Duration</label>
+   <input type="text" name="duration" id="duration" placeholder="Input duration...">
+ </div>
+</div>
+
+
+
+<div class="kotak4">
+ <!-- campaign -->
+ <div class="konten-input">
+   <label for="campaign">Campaign</label>
+   <input type="text" name="campaign" id="campaign" placeholder="Input campaign...">
+ </div>
+
+   <!-- pdays -->
+   <div class="konten-input">
+     <label for="pdays">Pdays</label>
+     <input type="text" name="pdays" id="pdays" placeholder="Input pdays...">
+   </div>
+
+     <!-- previous -->
+ <div class="konten-input">
+   <label for="previous">Previous</label>
+   <input type="text" name="previous" id="previous" placeholder="Input previous...">
+ </div>
+ 
+ <!-- poutcome -->
+ <div class="konten-input">
+   <label for="poutcome">Poutcome</label>
+     <select id="poutcome" name="poutcome">
+     <option value="">Select...</option>
+     <option value="0">Unknown</option>
+     <option value="1">Other</option>
+     <option value="2">Failure</option>
+     <option value="2">Success</option>
+   </select>
+ </div>
+</div>
+ 
+<div class="klik">
+ <button>PREDICTION DEPOSIT CUSTOMER</button>
+</a>
+</div>
+</form>
+
+</div>
+<div class="model-prediksi">
+  <div class="klik">
+  <a href="{{url_for('model_pred')}}"> 
+  <button>PREDICTION MODEL</button>
+  </a>
+  </div>
+</div>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block content2 %}
+
+<div class="container-model">
+  <h1 style="font-size: 20px;">OUTPUT</h1>
+  {%if data == 0%}
+    <strong><p style="color: brown; font-size: 20px;">NO</p></strong>
+    
+    <p style="margin-bottom: 10px;">( DEPOSIT )</p>
+
+    <table border="1px">
+      <tr>
+        <th>Age</th>
+        <th>Job</th>
+        <th>Marital</th>
+        <th>Education</th>
+        <th>Default</th>
+        <th>Balance</th>
+        <th>Housing</th>
+        <th>Loan</th>
+        <th>Contact</th>
+        <th>Day</th>
+        <th>Month</th>
+        <th>Duration</th>
+        <th>Campaign</th>
+        <th>Pdays</th>
+        <th>Previous</th>
+        <th>Poutcome</th>
+        <th>Deposit</th>
+      </tr>
+      <tr>
+        <td>{{age}}</td>
+        <td>{{job}}</td>
+        <td>{{marital}}</td>
+        <td>{{education}}</td>
+        <td>{{ddefault}}</td>
+        <td>{{balance}}</td>
+        <td>{{housing}}</td>
+        <td>{{loan}}</td>
+        <td>{{contact}}</td>
+        <td>{{day}}</td>
+        <td>{{month}}</td>
+        <td>{{duration}}</td>
+        <td>{{campaign}}</td>
+        <td>{{pdays}}</td>
+        <td>{{previous}}</td>
+        <td>{{poutcome}}</td>
+        <td style="background-color: rgb(202, 202, 202);">{{data}}</td>
+      </tr>
+    </table>
+  {%elif data == 1%}
+  <strong><p style="color: brown; font-size: 20px;">YES</p></strong>
+  <p style="margin-bottom: 10px;">( DEPOSIT )</p>
+  <table border="1px">
+    <tr>
+      <th>Age</th>
+      <th>Job</th>
+      <th>Marital</th>
+      <th>Education</th>
+      <th>Default</th>
+      <th>Balance</th>
+      <th>Housing</th>
+      <th>Loan</th>
+      <th>Contact</th>
+      <th>Day</th>
+      <th>Month</th>
+      <th>Duration</th>
+      <th>Campaign</th>
+      <th>Pdays</th>
+      <th>Previous</th>
+      <th>Poutcome</th>
+      <th>Deposit</th>
+    </tr>
+    <tr>
+      <td>{{age}}</td>
+      <td>{{job}}</td>
+      <td>{{marital}}</td>
+      <td>{{education}}</td>
+      <td>{{ddefault}}</td>
+      <td>{{balance}}</td>
+      <td>{{housing}}</td>
+      <td>{{loan}}</td>
+      <td>{{contact}}</td>
+      <td>{{day}}</td>
+      <td>{{month}}</td>
+      <td>{{duration}}</td>
+      <td>{{campaign}}</td>
+      <td>{{pdays}}</td>
+      <td>{{previous}}</td>
+      <td>{{poutcome}}</td>
+      <td style="background-color: rgb(202, 202, 202);">{{data}}</td>
+    </tr>
+  </table>
+  {%else%}
+  <strong><p style="color: brown; font-size: 20px;">NONE</p></strong>
+  
+  {%endif%}
+</div>
+
+{% endblock %}

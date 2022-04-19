@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block title %}MODEL PREDIKSI{% endblock %}
+{% block header %}PREDICTION MODEL{% endblock %}
+{% block content1 %}
+<div class="klik">
+    <a href="{{url_for('man')}}"> 
+    <button>BACK TO HOME</button>
+    </a>
+    </div>
+<div class="container-model">
+<h1 style="font-size: 20px;">DECISION TREE</h1>
+    <div class="gambar">
+    <img src="{{ url_for('static', filename='PohonKeputusan.png') }}" alt="dtree">
+    </div>
+</div>
+
+<div class="container-model2">
+    <h1 style="font-size: 20px;">PAIRPLOT SEABORN</h1>
+        <div class="gambar">
+        <img src="{{ url_for('static', filename='pairplot_sns.png') }}" alt="dtree">
+        </div>
+    </div>
+{% endblock %}
